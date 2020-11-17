@@ -1,19 +1,10 @@
-
-
 require('dotenv').config()
 const express = require('express');
 const server = express();
 
-const weatherApiget = require('./getRequest/weatherapiget');
-const latandLongget = require('./postRequest/latandlongPost');
-const googleRouter = require('./getRequest/googleLocation');
-const opentGeorouter = require('./geolocation/postReqfromclient')
-server.use(weatherApiget)
-server.use(googleRouter)
-server.use(opentGeorouter)
+const getLocation = require('./getLocation')
 
-
-
+server.use(getLocation);
 
 
 const PORT = 5000;
